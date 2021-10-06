@@ -7,7 +7,8 @@ import java.util.Set;
 
 public interface AuthorService {
 
-    Set<AuthorResponse> findAll();
+    Set<AuthorResponse> listAuthors();
+
     AuthorResponse findAuthorById(Long id);
     AuthorResponse createAuthor(Author author);
     AuthorResponse updateAuthor(Author author);

@@ -24,7 +24,7 @@ public class AuthotServiceImpl implements AuthorService {
 
 
     @Override
-    public Set<AuthorResponse> findAll() {
+    public Set<AuthorResponse> listAuthors() {
         return authorRepository.findAll().stream()
                 .map(authorMapper::authorToAuthorResponse)
                 .collect(Collectors.toSet());
