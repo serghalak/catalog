@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AuthorResponse {
 
+    private Long id;
+
     private String firstName;
 
     private String lastName;

@@ -3,6 +3,7 @@ package com.exadel.catalog.service.impl;
 import com.exadel.catalog.domain.Author;
 import com.exadel.catalog.mapper.AuthorMapper;
 import com.exadel.catalog.repository.AuthorRepository;
+import com.exadel.catalog.request.AuthorRequest;
 import com.exadel.catalog.response.AuthorResponse;
 import com.exadel.catalog.service.AuthorService;
 import lombok.AllArgsConstructor;
@@ -10,7 +11,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -39,8 +39,23 @@ public class AuthotServiceImpl implements AuthorService {
     }
 
     @Override
-    public AuthorResponse createAuthor(Author author) {
-        return null;
+    public AuthorResponse createAuthor(AuthorRequest authorRequest) {
+
+        String firstName = authorRequest.getFirstName();
+        String lastName = authorRequest.getLastName();
+
+        if (firstName == null || firstName.equals("") ) {
+            throw new IllegalArgumentException("The first name cannot be empty");
+        }
+
+        if(lastName == null || lastName.equals("")){
+            throw new IllegalArgumentException("The last name cannot be empty");
+        }
+
+        Author author = authorMapper.AuthorRequestToAuthor(authorRequest);
+        Author saveAuthor = authorRepository.save(author);
+
+        return authorMapper.authorToAuthorResponse(saveAuthor);
     }
 
     @Override
