@@ -1,14 +1,10 @@
 package com.exadel.catalog.request;
 
-import com.exadel.catalog.domain.Jenre;
-import com.exadel.catalog.domain.Publisher;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -19,7 +15,9 @@ public class BookRequest {
 
     private String isbn;
 
-    private Jenre jenre;
+    private Long jenreId;
 
-    private Publisher publisher;
+    private Long publisherId;
+
+    private List<Long> authorIds;
 }
