@@ -1,9 +1,6 @@
 package com.exadel.catalog.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -11,7 +8,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "publisher")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Publisher {

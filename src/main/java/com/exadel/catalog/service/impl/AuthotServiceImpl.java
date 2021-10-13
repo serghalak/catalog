@@ -1,6 +1,7 @@
 package com.exadel.catalog.service.impl;
 
 import com.exadel.catalog.domain.Author;
+import com.exadel.catalog.exception.AuthorNotFoundException;
 import com.exadel.catalog.mapper.AuthorMapper;
 import com.exadel.catalog.repository.AuthorRepository;
 import com.exadel.catalog.request.AuthorRequest;
@@ -10,7 +11,6 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -35,7 +35,7 @@ public class AuthotServiceImpl implements AuthorService {
 
         return authorRepository.findById(id)
                 .map(authorMapper::authorToAuthorResponse)
-                .orElseThrow(() -> new EntityNotFoundException("Author with id " + id + " not found"));
+                .orElseThrow(() -> new AuthorNotFoundException("Author with id " + id + " not found"));
     }
 
     @Override
@@ -44,11 +44,11 @@ public class AuthotServiceImpl implements AuthorService {
         String firstName = authorRequest.getFirstName();
         String lastName = authorRequest.getLastName();
 
-        if (firstName == null || firstName.equals("") ) {
+        if (firstName == null || firstName.equals("")) {
             throw new IllegalArgumentException("The first name cannot be empty");
         }
 
-        if(lastName == null || lastName.equals("")){
+        if (lastName == null || lastName.equals("")) {
             throw new IllegalArgumentException("The last name cannot be empty");
         }
 
@@ -58,28 +58,4 @@ public class AuthotServiceImpl implements AuthorService {
         return authorMapper.authorToAuthorResponse(saveAuthor);
     }
 
-    @Override
-    public AuthorResponse updateAuthor(Author author) {
-        return null;
-    }
-
-    @Override
-    public void deleteAuthor(Author author) {
-
-    }
-
-    @Override
-    public void deleteAuthorById(Long id) {
-
-    }
-
-    @Override
-    public Set<AuthorResponse> findByFistName(String firstName) {
-        return null;
-    }
-
-    @Override
-    public Set<AuthorResponse> findByLastName(String lastName) {
-        return null;
-    }
 }

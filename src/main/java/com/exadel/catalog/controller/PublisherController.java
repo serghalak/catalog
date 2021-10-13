@@ -1,10 +1,7 @@
 package com.exadel.catalog.controller;
 
-import com.exadel.catalog.request.AuthorRequest;
 import com.exadel.catalog.request.PublisherRequest;
-import com.exadel.catalog.response.AuthorResponse;
 import com.exadel.catalog.response.PublisherResponse;
-import com.exadel.catalog.service.AuthorService;
 import com.exadel.catalog.service.PublisherService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

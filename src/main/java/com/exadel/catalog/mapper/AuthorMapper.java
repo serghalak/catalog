@@ -15,11 +15,11 @@ public class AuthorMapper {
 
     private ModelMapper mapper;
 
-    public AuthorResponse authorToAuthorResponse(Author author){
+    public AuthorResponse authorToAuthorResponse(Author author) {
         return Objects.isNull(author) ? null : mapper.map(author, AuthorResponse.class);
     }
 
-    public Author AuthorRequestToAuthor(AuthorRequest authorRequest){
+    public Author AuthorRequestToAuthor(AuthorRequest authorRequest) {
         return Objects.isNull(authorRequest) ? null : mapper.map(authorRequest, Author.class);
     }
 

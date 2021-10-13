@@ -1,11 +1,8 @@
 package com.exadel.catalog.controller;
 
 import com.exadel.catalog.request.JenreRequest;
-import com.exadel.catalog.request.PublisherRequest;
 import com.exadel.catalog.response.JenreResponse;
-import com.exadel.catalog.response.PublisherResponse;
 import com.exadel.catalog.service.JenreService;
-import com.exadel.catalog.service.PublisherService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

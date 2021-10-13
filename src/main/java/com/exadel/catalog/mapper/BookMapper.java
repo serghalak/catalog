@@ -1,7 +1,6 @@
 package com.exadel.catalog.mapper;
 
 import com.exadel.catalog.domain.Book;
-import com.exadel.catalog.request.BookRequest;
 import com.exadel.catalog.response.BookResponse;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -19,7 +18,4 @@ public class BookMapper {
         return Objects.isNull(book) ? null : mapper.map(book, BookResponse.class);
     }
 
-//    public Book BookRequestToBook(BookRequest bookRequest) {
-//        return Objects.isNull(bookRequest) ? null : mapper.map(bookRequest, Book.class);
-//    }
 }
