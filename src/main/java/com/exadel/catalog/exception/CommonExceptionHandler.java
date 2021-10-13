@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpServletRequest;
-import java.nio.file.AccessDeniedException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,7 +29,7 @@ public class CommonExceptionHandler {
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     public ResponseEntity<?> methodArgumentNotValidException(HttpServletRequest request, MethodArgumentNotValidException exception) {
 
-        String errorMessage=exception.getBindingResult().getAllErrors().get(0).getDefaultMessage();
+        String errorMessage = exception.getBindingResult().getAllErrors().get(0).getDefaultMessage();
 
         return getResponse(request, HttpStatus.BAD_REQUEST, errorMessage);
 

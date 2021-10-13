@@ -34,4 +34,11 @@ public class AuthorController {
         return new ResponseEntity<>(authorService.createAuthor(authorRequest), HttpStatus.OK);
 
     }
+
+    @GetMapping(produces = {"application/json"}, path = "author/{authorId}")
+    public AuthorResponse getAuthorById(@PathVariable("authorId") Long id) {
+
+        return authorService.findAuthorById(id);
+
+    }
 }

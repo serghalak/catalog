@@ -4,6 +4,8 @@ import com.exadel.catalog.domain.Author;
 import com.exadel.catalog.domain.Book;
 import com.exadel.catalog.domain.Jenre;
 import com.exadel.catalog.domain.Publisher;
+import com.exadel.catalog.exception.JenreNotFoundException;
+import com.exadel.catalog.exception.PublicationNotFoundException;
 import com.exadel.catalog.mapper.BookMapper;
 import com.exadel.catalog.repository.AuthorRepository;
 import com.exadel.catalog.repository.BookRepository;
@@ -43,21 +45,39 @@ public class BookServiceImpl implements BookService {
     @Override
     public BookResponse createBook(BookRequest bookRequest) {
 
-        Long jenreId = bookRequest.getJenreId();
-        Long publisherId = bookRequest.getPublisherId();
-        List<Long> authorIds = bookRequest.getAuthorIds();
+        if (bookRequest == null) {
+            throw new IllegalArgumentException("The book cannot be empty");
+        }
 
-        Optional<Jenre> jenreById = jenreRepository.findById(jenreId);
-        Optional<Publisher> publisherById = publisherRepository.findById(publisherId);
+        Long jenreId = bookRequest.getJenreId();
+        if(jenreId == null){
+            throw new IllegalArgumentException("The janre id cannot be empty");
+        }
+
+        Long publisherId = bookRequest.getPublisherId();
+        if(publisherId == null){
+            throw new IllegalArgumentException("The publisher id cannot be empty");
+        }
+
+        List<Long> authorIds = bookRequest.getAuthorIds();
+        if(authorIds == null){
+            throw new IllegalArgumentException("There is no any author");
+        }
+
+        Jenre jenreById = jenreRepository.findById(jenreId)
+                .orElseThrow(() -> new JenreNotFoundException(String.format("Jenre with id %d not found", jenreId)));
+
+        Publisher publisherById = publisherRepository.findById(publisherId)
+                .orElseThrow(() -> new PublicationNotFoundException(String.format("Publisher with id %d not found", publisherId)));
+
         Set<Author> authors = authorRepository.findAllAuthorByIds(authorIds);
 
         Book book = new Book();
         book.setTitle(bookRequest.getTitle());
         book.setIsbn(bookRequest.getIsbn());
-        book.setJenre(jenreById.get());
-        book.setPublisher(publisherById.get());
+        book.setJenre(jenreById);
+        book.setPublisher(publisherById);
         book.setAuthors(authors);
-
 
         Book saveBook = bookRepository.save(book);
 
