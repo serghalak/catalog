@@ -54,10 +54,6 @@ class AuthotServiceImplTest {
         author2.setLastName("LastName2");
     }
 
-    @AfterEach
-    void tearDown() {
-
-    }
 
     @Test
     void shouldReturnAllAuthorsFromRepository() {
