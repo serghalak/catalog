@@ -4,6 +4,7 @@ import com.exadel.catalog.domain.Author;
 import com.exadel.catalog.domain.Book;
 import com.exadel.catalog.domain.Jenre;
 import com.exadel.catalog.domain.Publisher;
+import com.exadel.catalog.exception.AuthorNotFoundException;
 import com.exadel.catalog.exception.JenreNotFoundException;
 import com.exadel.catalog.exception.PublicationNotFoundException;
 import com.exadel.catalog.mapper.BookMapper;
@@ -64,6 +65,7 @@ public class BookServiceImpl implements BookService {
             throw new IllegalArgumentException("There is no any author");
         }
 
+
         Jenre jenreById = jenreRepository.findById(jenreId)
                 .orElseThrow(() -> new JenreNotFoundException(String.format("Jenre with id %d not found", jenreId)));
 
@@ -71,6 +73,10 @@ public class BookServiceImpl implements BookService {
                 .orElseThrow(() -> new PublicationNotFoundException(String.format("Publisher with id %d not found", publisherId)));
 
         Set<Author> authors = authorRepository.findAllAuthorByIds(authorIds);
+        if(authors ==null){
+            throw new AuthorNotFoundException("Chosen authors not found");
+        }
+
 
         Book book = new Book();
         book.setTitle(bookRequest.getTitle());
