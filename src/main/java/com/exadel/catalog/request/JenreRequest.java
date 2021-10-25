@@ -12,6 +12,6 @@ import javax.validation.constraints.Size;
 public class JenreRequest {
 
     @NotBlank(message = "Jenre name is mandatory")
-    @Size(min = 1, max = 255, message = "Jenre name should be from 1 to 255")
+    @Size(min = 1, max = 255, message = "Jenre name length should be from 1 to 255")
     private String name;
 }

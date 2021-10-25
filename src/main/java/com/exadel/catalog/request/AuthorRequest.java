@@ -12,11 +12,11 @@ import javax.validation.constraints.Size;
 public class AuthorRequest {
 
     @NotBlank(message = "Author first name is mandatory")
-    @Size(min = 1, max = 255, message = "Author first name should be from 1 to 255")
-    private String FirstName;
+    @Size(min = 1, max = 255, message = "Author first name length should be from 1 to 255")
+    private String firstName;
 
     @NotBlank(message = "Author last name is mandatory")
-    @Size(min = 1, max = 255, message = "Author last name should be from 1 to 255")
-    private String LastName;
+    @Size(min = 1, max = 255, message = "Author last name length should be from 1 to 255")
+    private String lastName;
 
 }

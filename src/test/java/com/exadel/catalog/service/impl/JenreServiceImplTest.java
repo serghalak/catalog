@@ -1,14 +1,9 @@
 package com.exadel.catalog.service.impl;
 
-import com.exadel.catalog.domain.Author;
 import com.exadel.catalog.domain.Jenre;
-import com.exadel.catalog.mapper.AuthorMapper;
 import com.exadel.catalog.mapper.JenreMapper;
-import com.exadel.catalog.repository.AuthorRepository;
 import com.exadel.catalog.repository.JenreRepository;
-import com.exadel.catalog.request.AuthorRequest;
 import com.exadel.catalog.request.JenreRequest;
-import com.exadel.catalog.response.AuthorResponse;
 import com.exadel.catalog.response.JenreResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -111,7 +106,7 @@ class JenreServiceImplTest {
         Jenre jenreBeforeSave = new Jenre();
         jenreBeforeSave.setName("Web");
 
-        when(jenreMapper.JenreRequestToJenre(jenreRequest)).thenReturn(jenreBeforeSave);
+        when(jenreMapper.jenreRequestToJenre(jenreRequest)).thenReturn(jenreBeforeSave);
         when(jenreRepository.save(jenreBeforeSave)).thenReturn(jenre1);
         when(jenreMapper.jenreToJenreResponse(jenre1)).thenReturn(jenreResponse);
 

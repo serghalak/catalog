@@ -46,7 +46,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public BookResponse createBook(@Valid BookRequest bookRequest) throws RequestArgumentIsNotPresentException {
+    public BookResponse createBook(BookRequest bookRequest) {
 
         if (bookRequest == null) {
             throw new IllegalArgumentException("The book cannot be empty");

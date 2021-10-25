@@ -19,7 +19,7 @@ public class PublisherMapper {
         return Objects.isNull(publisher) ? null : mapper.map(publisher, PublisherResponse.class);
     }
 
-    public Publisher PublisherRequestToPublisher(PublisherRequest publisherRequest) {
+    public Publisher publisherRequestToPublisher(PublisherRequest publisherRequest) {
         return Objects.isNull(publisherRequest) ? null : mapper.map(publisherRequest, Publisher.class);
     }
 }

@@ -51,7 +51,7 @@ public class CommonExceptionHandler {
     /*400*/
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-    public ResponseEntity<?>constraintViolationException(HttpServletRequest request, ConstraintViolationException exception){
+    public ResponseEntity<?> constraintViolationException(HttpServletRequest request, ConstraintViolationException exception) {
 
         return getResponse(request, HttpStatus.BAD_REQUEST, exception.getMessage());
 
@@ -60,7 +60,7 @@ public class CommonExceptionHandler {
     /*400*/
     @ExceptionHandler(InvalidFormatException.class)
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-    public ResponseEntity<?>invalidFormatException(HttpServletRequest request, InvalidFormatException exception){
+    public ResponseEntity<?> invalidFormatException(HttpServletRequest request, InvalidFormatException exception) {
 
         return getResponse(request, HttpStatus.BAD_REQUEST, exception.getMessage());
 

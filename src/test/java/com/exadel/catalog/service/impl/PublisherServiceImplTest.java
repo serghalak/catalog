@@ -1,14 +1,9 @@
 package com.exadel.catalog.service.impl;
 
-import com.exadel.catalog.domain.Jenre;
 import com.exadel.catalog.domain.Publisher;
-import com.exadel.catalog.mapper.JenreMapper;
 import com.exadel.catalog.mapper.PublisherMapper;
-import com.exadel.catalog.repository.JenreRepository;
 import com.exadel.catalog.repository.PublisherRepository;
-import com.exadel.catalog.request.JenreRequest;
 import com.exadel.catalog.request.PublisherRequest;
-import com.exadel.catalog.response.JenreResponse;
 import com.exadel.catalog.response.PublisherResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -98,7 +93,7 @@ class PublisherServiceImplTest {
         Publisher publisherBeforeSave = new Publisher();
         publisherBeforeSave.setName("PROGRAMMER");
 
-        when(publisherMapper.PublisherRequestToPublisher(publisherRequest)).thenReturn(publisherBeforeSave);
+        when(publisherMapper.publisherRequestToPublisher(publisherRequest)).thenReturn(publisherBeforeSave);
         when(publisherRepository.save(publisherBeforeSave)).thenReturn(publisher1);
         when(publisherMapper.publisherToPublisherResponse(publisher1)).thenReturn(publisherResponse);
 

@@ -19,7 +19,7 @@ public class JenreMapper {
         return Objects.isNull(jenre) ? null : mapper.map(jenre, JenreResponse.class);
     }
 
-    public Jenre JenreRequestToJenre(JenreRequest jenreRequest) {
+    public Jenre jenreRequestToJenre(JenreRequest jenreRequest) {
         return Objects.isNull(jenreRequest) ? null : mapper.map(jenreRequest, Jenre.class);
     }
 }

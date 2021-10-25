@@ -40,7 +40,7 @@ public class JenreServiceImpl implements JenreService {
             throw new IllegalArgumentException("The name cannot be empty");
         }
 
-        Jenre jenre = jenreMapper.JenreRequestToJenre(jenreRequest);
+        Jenre jenre = jenreMapper.jenreRequestToJenre(jenreRequest);
 
         Jenre saveJenre = jenreRepository.save(jenre);
 
