@@ -7,6 +7,7 @@ import com.exadel.catalog.domain.Publisher;
 import com.exadel.catalog.exception.AuthorNotFoundException;
 import com.exadel.catalog.exception.JenreNotFoundException;
 import com.exadel.catalog.exception.PublicationNotFoundException;
+import com.exadel.catalog.exception.RequestArgumentIsNotPresentException;
 import com.exadel.catalog.mapper.BookMapper;
 import com.exadel.catalog.repository.AuthorRepository;
 import com.exadel.catalog.repository.BookRepository;
@@ -19,6 +20,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;

@@ -19,7 +19,7 @@ public class AuthorMapper {
         return Objects.isNull(author) ? null : mapper.map(author, AuthorResponse.class);
     }
 
-    public Author AuthorRequestToAuthor(AuthorRequest authorRequest) {
+    public Author authorRequestToAuthor(AuthorRequest authorRequest) {
         return Objects.isNull(authorRequest) ? null : mapper.map(authorRequest, Author.class);
     }
 

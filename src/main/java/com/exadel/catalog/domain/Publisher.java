@@ -1,6 +1,9 @@
 package com.exadel.catalog.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -25,6 +28,6 @@ public class Publisher {
     private String address;
 
     @OneToMany(mappedBy = "publisher")
-    private Set<Book> books=new HashSet<>();
+    private Set<Book> books = new HashSet<>();
 
 }

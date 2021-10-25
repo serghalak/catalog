@@ -41,7 +41,7 @@ public class PublisherServiceImpl implements PublisherService {
             throw new IllegalArgumentException("The name cannot be empty");
         }
 
-        Publisher publisher = publisherMapper.PublisherRequestToPublisher(publisherRequest);
+        Publisher publisher = publisherMapper.publisherRequestToPublisher(publisherRequest);
 
         Publisher savePublisher = publisherRepository.save(publisher);
 

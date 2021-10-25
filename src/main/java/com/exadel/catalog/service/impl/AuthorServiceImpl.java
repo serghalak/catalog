@@ -52,7 +52,7 @@ public class AuthorServiceImpl implements AuthorService {
             throw new IllegalArgumentException("The last name cannot be empty");
         }
 
-        Author author = authorMapper.AuthorRequestToAuthor(authorRequest);
+        Author author = authorMapper.authorRequestToAuthor(authorRequest);
         Author saveAuthor = authorRepository.save(author);
 
         return authorMapper.authorToAuthorResponse(saveAuthor);

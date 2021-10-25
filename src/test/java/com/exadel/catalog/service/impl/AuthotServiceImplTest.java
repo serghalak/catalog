@@ -6,7 +6,6 @@ import com.exadel.catalog.mapper.AuthorMapper;
 import com.exadel.catalog.repository.AuthorRepository;
 import com.exadel.catalog.request.AuthorRequest;
 import com.exadel.catalog.response.AuthorResponse;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,9 +13,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -149,7 +146,7 @@ class AuthotServiceImplTest {
         authorBeforeSave.setFirstName("FirstName1");
         authorBeforeSave.setLastName("LastName1");
 
-        when(authorMapper.AuthorRequestToAuthor(authorRequest)).thenReturn(authorBeforeSave);
+        when(authorMapper.authorRequestToAuthor(authorRequest)).thenReturn(authorBeforeSave);
         when(authorRepository.save(authorBeforeSave)).thenReturn(author1);
         when(authorMapper.authorToAuthorResponse(author1)).thenReturn(authorResponse);
 
